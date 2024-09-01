@@ -1,18 +1,13 @@
-import { View, StyleSheet } from "react-native";
-import { Image } from "expo-image";
-import * as Font from "expo-font";
+import { View, StyleSheet, Image, Text } from "react-native";
+
+import global from "../styles/global";
+const logo = require("../../assets/img/full-logo.png");
+
 export default function Main() {
-  const [fontsLoaded] = Font.useFonts({
-    UniNeue: require("../../assets/fonts/UniNeue-Trial-Heavy.ttf"),
-  });
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source="../../assets/images/full-logo.png"
-        contentFit="cover"
-        transition={1000}
-      />
+      <Image source={logo} style={styles.image} />
+      <Text style={global.text}>Welcome to Expo!</Text>
     </View>
   );
 }
@@ -20,14 +15,11 @@ export default function Main() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
   image: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#0553",
+    width: 300,
+    height: 80,
   },
 });
