@@ -1,7 +1,8 @@
 import { View, StyleSheet, Image, Text } from "react-native";
-
+import { Link } from "expo-router";
 import global from "../styles/global";
-import Button from "../components/Button";
+import Button from "../components/CustomLink";
+import CustomLink from "../components/CustomLink";
 const logo = require("../../assets/img/full-logo.png");
 
 export default function Main() {
@@ -11,7 +12,7 @@ export default function Main() {
         <Image source={logo} style={styles.image} />
         <Text style={global.text}>Welcome!</Text>
       </View>
-      <Button />
+      <CustomLink text="Start" link="/auto-score/start" />
     </>
   );
 }

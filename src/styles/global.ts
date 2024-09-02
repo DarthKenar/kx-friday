@@ -10,7 +10,7 @@ import { StyleSheet } from "react-native";
 // FONT "UniNeue", Sans-serif
 
 const styles = StyleSheet.create({
-  container: {
+  layout: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -21,18 +21,18 @@ const styles = StyleSheet.create({
     color: "#08101D",
     fontFamily: "UniNeue",
   },
-  button_text: {
+  link_text: {
     fontSize: 20,
     color: "#F9F6F2",
     fontFamily: "UniNeue",
     textAlign: "center",
   },
-  button_container: {
+  link_container: {
     backgroundColor: "#08101D",
     padding: 10,
     borderRadius: 5,
     width: 150,
-  }
+  },
 });
 
 export default styles;
