@@ -5,7 +5,7 @@ export default function Layout() {
   return (
     <View style={global.layout}>
       <Text>Congratulations!</Text>
-      <CustomLink text="Start" link="/index" />
+      <CustomLink text="Start" link="/" />
     </View>
   );
 }
