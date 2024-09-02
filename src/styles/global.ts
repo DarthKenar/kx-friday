@@ -21,6 +21,18 @@ const styles = StyleSheet.create({
     color: "#08101D",
     fontFamily: "UniNeue",
   },
+  button_text: {
+    fontSize: 20,
+    color: "#F9F6F2",
+    fontFamily: "UniNeue",
+    textAlign: "center",
+  },
+  button_container: {
+    backgroundColor: "#08101D",
+    padding: 10,
+    borderRadius: 5,
+    width: 150,
+  }
 });
 
 export default styles;
