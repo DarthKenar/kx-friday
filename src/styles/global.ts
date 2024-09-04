@@ -7,7 +7,7 @@ import { StyleSheet } from "react-native";
 // Text A color: gray (hex: #54595F)
 // Text B color: gray (hex: #7A7A7A)
 
-// FONT "UniNeue", Sans-serif
+// FONT "UniNeue"
 
 const styles = StyleSheet.create({
   layout: {
@@ -15,6 +15,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F9F6F2",
+  },
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#F9F6F2",
+  },
+  options: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    width: "100%",
+    padding: 10,
   },
   text: {
     fontSize: 20,
@@ -24,14 +37,29 @@ const styles = StyleSheet.create({
   link_text: {
     fontSize: 20,
     color: "#F9F6F2",
-    fontFamily: "UniNeue",
     textAlign: "center",
+    fontFamily: "UniNeue",
   },
   link_container: {
     backgroundColor: "#08101D",
     padding: 10,
     borderRadius: 5,
     width: 150,
+  },
+  link_container_no_available: {
+    backgroundColor: "#7A7A7A",
+    padding: 10,
+    borderRadius: 5,
+    width: 150,
+  },
+  logo_header: {
+    width: 100,
+    height: 100,
+  },
+  ask: {
+    fontSize: 16,
+    color: "#08101D",
+    fontFamily: "UniNeue",
   },
 });
 
