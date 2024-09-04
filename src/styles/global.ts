@@ -34,6 +34,11 @@ const styles = StyleSheet.create({
     color: "#08101D",
     fontFamily: "UniNeue",
   },
+  text_header: {
+    fontSize: 20,
+    color: "#F9F6F2",
+    fontFamily: "UniNeue",
+  },
   link_text: {
     fontSize: 20,
     color: "#F9F6F2",
@@ -52,7 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 150,
   },
-  logo_header: {
+  logo: {
     width: 100,
     height: 100,
   },
@@ -60,6 +65,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#08101D",
     fontFamily: "UniNeue",
+  },
+  logo_header: {
+    flex: 1,
+    width: 30,
+    height: 30,
   },
 });
 

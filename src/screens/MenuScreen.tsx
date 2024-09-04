@@ -1,12 +1,12 @@
 import { View, Text, Pressable } from "react-native";
 import global from "../styles/global";
 import CustomLink from "../components/CustomLink";
-import LogoHeader from "../components/logoHeader";
+import Logo from "../components/logo";
 
 export default function Menu() {
   return (
     <>
-      <LogoHeader />
+      <Logo />
       <View style={global.container}>
         <CustomLink
           extraClass={{ marginBottom: 40 }}
