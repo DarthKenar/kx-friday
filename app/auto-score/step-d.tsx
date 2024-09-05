@@ -34,7 +34,13 @@ export default function StepD() {
       </Text>
       <View style={{ gap: 30 }}>
         <CustomLink text="Si" link="/auto-score/step-dd" />
-        <CustomLink onTouch={onTouch} text="No" link="/auto-score/step-e" />
+        <CustomLink
+          stepValue={stepValue}
+          value={0.1}
+          onTouch={onTouch}
+          text="No"
+          link="/auto-score/step-e"
+        />
         <CustomLink
           textSize={16}
           text="Yo soy la dificultad"

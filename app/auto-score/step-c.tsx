@@ -43,7 +43,7 @@ export default function StepC() {
         />
         <CustomLink
           setValue={setStepValue}
-          value={8}
+          value={7.5}
           onTouch={onTouch}
           text="A Veces"
           link="/auto-score/step-d"
@@ -51,7 +51,7 @@ export default function StepC() {
         />
         <CustomLink
           setValue={setStepValue}
-          value={0}
+          value={0.1}
           onTouch={onTouch}
           textSize={16}
           text="No tuve la oportunidad"
