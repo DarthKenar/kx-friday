@@ -1,8 +1,7 @@
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import global from "../../src/styles/global";
 import CustomLink from "../../src/components/CustomLink";
 import { ArrowRight } from "../../src/components/icons";
-import Logo from "../../src/components/logo";
 
 export default function Start() {
   return (

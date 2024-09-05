@@ -2,10 +2,29 @@ import { View, Text } from "react-native";
 import global from "../../src/styles/global";
 import CustomLink from "../../src/components/CustomLink";
 import Slider from "@react-native-community/slider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getData, storeData } from "../../src/hooks/scoreStorage";
+import { LocalStorage } from "../../src/types/storage";
 
 export default function StepA() {
-  const [sliderValue, setSliderValue] = useState(5);
+  const [data, setData] = useState<LocalStorage>();
+  const [stepValue, setStepValue] = useState(5);
+
+  useEffect(() => {
+    getData().then((storageData) => {
+      if (storageData) {
+        setStepValue(storageData.stepA ?? 5);
+        setData(storageData);
+      }
+    });
+  }, []);
+
+  const onTouch = () => {
+    if (data) {
+      data.stepA = stepValue;
+      storeData(data);
+    }
+  };
 
   return (
     <View style={global.layout}>
@@ -27,23 +46,23 @@ export default function StepA() {
       >
         <Text
           style={{
-            color: sliderValue > 4 ? "#F9F6F2" : "#08101D",
+            color: stepValue > 4 ? "#F9F6F2" : "#08101D",
             fontSize: 20,
-            opacity: sliderValue,
+            opacity: stepValue,
             position: "absolute",
             zIndex: 1,
           }}
         >
-          {sliderValue.toFixed(1)}
+          {stepValue.toFixed(1)}
         </Text>
       </View>
       <View style={{ height: 40 }}>
-        {sliderValue < 4 && (
+        {stepValue < 4 && (
           <Text style={[global.ask]}>
             No te preocupes, todos tenemos malos días
           </Text>
         )}
-        {sliderValue > 9 && (
+        {stepValue > 9 && (
           <Text style={[global.ask]}>Excelente, Sigue así!</Text>
         )}
       </View>
@@ -55,11 +74,15 @@ export default function StepA() {
         minimumTrackTintColor="#08101D"
         maximumTrackTintColor="#000000"
         thumbTintColor="#08101D"
-        value={sliderValue}
+        value={stepValue}
         trackImage={require("../../assets/img/icon.png")}
-        onValueChange={(value) => setSliderValue(value)}
+        onValueChange={(value) => setStepValue(value)}
       />
-      <CustomLink text="Continuar" link="/auto-score/step-b" />
+      <CustomLink
+        onTouch={onTouch}
+        text="Continuar"
+        link="/auto-score/step-b"
+      />
     </View>
   );
 }

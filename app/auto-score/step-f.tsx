@@ -6,7 +6,7 @@ import { getData, storeData } from "../../src/hooks/scoreStorage";
 import { useEffect, useState } from "react";
 import { LocalStorage } from "../../src/types/storage";
 
-export default function StepC() {
+export default function StepF() {
   const [data, setData] = useState<LocalStorage>();
   const [stepValue, setStepValue] = useState(5);
 
@@ -29,30 +29,37 @@ export default function StepC() {
   return (
     <View style={global.layout}>
       <Text style={[styles.text, { paddingBottom: 60 }]}>
-        ¿Colaboraste bien con tu equipo?
+        ¿Estas contento con tu progreso?
       </Text>
       <View style={{ gap: 30 }}>
         <CustomLink
           setValue={setStepValue}
           value={10}
           onTouch={onTouch}
-          text="Si"
-          link="/auto-score/step-d"
-        />
-        <CustomLink
-          setValue={setStepValue}
-          value={7.5}
-          onTouch={onTouch}
-          text="A Veces"
-          link="/auto-score/step-d"
-        />
-        <CustomLink
-          setValue={setStepValue}
-          value={5}
-          onTouch={onTouch}
           textSize={16}
-          text="No tuve la oportunidad"
-          link="/auto-score/step-d"
+          text="Progreso es mi segundo nombre"
+          link="/auto-score/end"
+        />
+        <CustomLink
+          setValue={setStepValue}
+          value={8.5}
+          onTouch={onTouch}
+          text="Contento"
+          link="/auto-score/end"
+        />
+        <CustomLink
+          setValue={setStepValue}
+          value={7}
+          onTouch={onTouch}
+          text="Regular"
+          link="/auto-score/end"
+        />
+        <CustomLink
+          setValue={setStepValue}
+          value={1}
+          onTouch={onTouch}
+          text="No"
+          link="/auto-score/end"
         />
       </View>
     </View>

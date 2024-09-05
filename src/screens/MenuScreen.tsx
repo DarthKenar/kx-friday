@@ -10,7 +10,7 @@ export default function Menu() {
       <View style={global.container}>
         <CustomLink
           extraClass={{ marginBottom: 40 }}
-          text="Puntaje Semanal"
+          text="Puntaje"
           link="/auto-score/start"
         />
         <Pressable

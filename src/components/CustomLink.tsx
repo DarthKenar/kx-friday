@@ -6,19 +6,31 @@ import { ReactElement, useState } from "react";
 interface CustomLinkProps {
   text: string;
   link: string;
+  textSize?: number;
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
   extraClass?: object;
+  onTouch?: () => void;
+  value?: number;
+  setValue?: (value: number) => void;
 }
 
 export default function CustomLink({
   text,
+  textSize = 20,
   link,
   leftIcon,
   rightIcon,
   extraClass,
+  onTouch,
+  value,
+  setValue,
 }: CustomLinkProps) {
   const [isPressed, setIsPressed] = useState(false);
+  const onTouchLink = () => {
+    onTouch && value && onTouch();
+    setValue && value && setValue(value);
+  };
   return (
     <Link
       asChild
@@ -35,9 +47,9 @@ export default function CustomLink({
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
     >
-      <Pressable>
+      <Pressable onTouchEnd={onTouchLink}>
         {leftIcon}
-        <Text style={global.link_text}>{text}</Text>
+        <Text style={[global.link_text, { fontSize: textSize }]}>{text}</Text>
         {rightIcon}
       </Pressable>
     </Link>

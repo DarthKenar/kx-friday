@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     fontFamily: "UniNeue",
   },
   link_text: {
-    fontSize: 20,
     color: "#F9F6F2",
     textAlign: "center",
     fontFamily: "UniNeue",
