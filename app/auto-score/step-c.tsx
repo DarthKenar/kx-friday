@@ -8,20 +8,21 @@ import { LocalStorage } from "../../src/types/storage";
 
 export default function StepC() {
   const [data, setData] = useState<LocalStorage>();
-  const [stepValue, setStepValue] = useState(5);
+  const [stepValue, setStepValue] = useState<number | undefined>();
 
   useEffect(() => {
     getData().then((storageData) => {
       if (storageData) {
-        setStepValue(storageData.stepB ?? 5);
+        setStepValue(storageData.stepC ?? 5);
         setData(storageData);
       }
     });
   }, []);
 
-  const onTouch = () => {
+  const onTouch = (value: number) => {
     if (data) {
-      data.stepB = stepValue;
+      data.stepC = value;
+      console.log(data);
       storeData(data);
     }
   };
@@ -38,21 +39,24 @@ export default function StepC() {
           onTouch={onTouch}
           text="Si"
           link="/auto-score/step-d"
+          stepValue={stepValue}
         />
         <CustomLink
           setValue={setStepValue}
-          value={7.5}
+          value={8}
           onTouch={onTouch}
           text="A Veces"
           link="/auto-score/step-d"
+          stepValue={stepValue}
         />
         <CustomLink
           setValue={setStepValue}
-          value={5}
+          value={0}
           onTouch={onTouch}
           textSize={16}
           text="No tuve la oportunidad"
           link="/auto-score/step-d"
+          stepValue={stepValue}
         />
       </View>
     </View>

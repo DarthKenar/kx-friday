@@ -10,9 +10,11 @@ interface CustomLinkProps {
   leftIcon?: ReactElement;
   rightIcon?: ReactElement;
   extraClass?: object;
-  onTouch?: () => void;
+  onTouch?: (value: number) => void;
   value?: number;
   setValue?: (value: number) => void;
+  bgColor?: string;
+  stepValue?: number;
 }
 
 export default function CustomLink({
@@ -25,10 +27,12 @@ export default function CustomLink({
   onTouch,
   value,
   setValue,
+  bgColor = "#08101D",
+  stepValue,
 }: CustomLinkProps) {
   const [isPressed, setIsPressed] = useState(false);
   const onTouchLink = () => {
-    onTouch && value && onTouch();
+    onTouch && value && onTouch(value);
     setValue && value && setValue(value);
   };
   return (
@@ -38,7 +42,10 @@ export default function CustomLink({
       style={[
         global.link_container,
         extraClass,
-        isPressed && { opacity: 0.9 }, // Aplica el color rojo cuando está presionado
+        isPressed && { opacity: 0.9 },
+        stepValue && stepValue === value
+          ? { backgroundColor: "#222222" }
+          : { backgroundColor: bgColor },
         (leftIcon || rightIcon) && {
           flexDirection: "row",
           justifyContent: "space-around",

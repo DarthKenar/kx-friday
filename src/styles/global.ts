@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     fontFamily: "UniNeue",
   },
   link_container: {
-    backgroundColor: "#08101D",
     padding: 10,
     borderRadius: 5,
     width: 150,

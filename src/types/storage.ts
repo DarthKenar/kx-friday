@@ -4,5 +4,6 @@ export type LocalStorage = {
   stepC?: number;
   stepD?: number;
   stepE?: number;
+  stepF?: number;
   total?: number;
 };

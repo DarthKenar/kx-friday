@@ -8,20 +8,21 @@ import { LocalStorage } from "../../src/types/storage";
 
 export default function StepDD() {
   const [data, setData] = useState<LocalStorage>();
-  const [stepValue, setStepValue] = useState(5);
+  const [stepValue, setStepValue] = useState<number | undefined>();
 
   useEffect(() => {
     getData().then((storageData) => {
       if (storageData) {
-        setStepValue(storageData.stepB ?? 5);
+        setStepValue(storageData.stepD ?? 5);
         setData(storageData);
       }
     });
   }, []);
 
-  const onTouch = () => {
+  const onTouch = (value: number) => {
     if (data) {
-      data.stepB = stepValue;
+      data.stepD = value;
+      console.log(data);
       storeData(data);
     }
   };
@@ -37,6 +38,7 @@ export default function StepDD() {
           onTouch={onTouch}
           text="Si"
           link="/auto-score/step-e"
+          stepValue={stepValue}
         />
         <CustomLink
           setValue={setStepValue}
@@ -44,6 +46,7 @@ export default function StepDD() {
           onTouch={onTouch}
           text="No"
           link="/auto-score/step-e"
+          stepValue={stepValue}
         />
         <CustomLink
           setValue={setStepValue}
@@ -51,6 +54,7 @@ export default function StepDD() {
           onTouch={onTouch}
           text="Hardcodeando"
           link="/auto-score/step-e"
+          stepValue={stepValue}
         />
       </View>
     </View>

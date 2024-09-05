@@ -8,20 +8,21 @@ import { LocalStorage } from "../../src/types/storage";
 
 export default function StepF() {
   const [data, setData] = useState<LocalStorage>();
-  const [stepValue, setStepValue] = useState(5);
+  const [stepValue, setStepValue] = useState<number | undefined>();
 
   useEffect(() => {
     getData().then((storageData) => {
       if (storageData) {
-        setStepValue(storageData.stepB ?? 5);
+        setStepValue(storageData.stepF ?? 5);
         setData(storageData);
       }
     });
   }, []);
 
-  const onTouch = () => {
+  const onTouch = (value: number) => {
     if (data) {
-      data.stepB = stepValue;
+      data.stepF = value;
+      console.log(data);
       storeData(data);
     }
   };
@@ -39,6 +40,7 @@ export default function StepF() {
           textSize={16}
           text="Progreso es mi segundo nombre"
           link="/auto-score/end"
+          stepValue={stepValue}
         />
         <CustomLink
           setValue={setStepValue}
@@ -46,6 +48,7 @@ export default function StepF() {
           onTouch={onTouch}
           text="Contento"
           link="/auto-score/end"
+          stepValue={stepValue}
         />
         <CustomLink
           setValue={setStepValue}
@@ -53,6 +56,7 @@ export default function StepF() {
           onTouch={onTouch}
           text="Regular"
           link="/auto-score/end"
+          stepValue={stepValue}
         />
         <CustomLink
           setValue={setStepValue}
@@ -60,6 +64,7 @@ export default function StepF() {
           onTouch={onTouch}
           text="No"
           link="/auto-score/end"
+          stepValue={stepValue}
         />
       </View>
     </View>

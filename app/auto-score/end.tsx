@@ -16,10 +16,14 @@ export default function End() {
     });
   }, []);
   return (
-    <View style={global.layout}>
-      <Text style={styles.text}>Felicitaciones!</Text>
+    <View style={[global.layout, { gap: 25 }]}>
+      <Text style={[styles.text, { textAlign: "center" }]}>
+        {score > 5
+          ? "Felicitaciones!"
+          : "  Ánimo, la semana que viene lo harás mejor!"}
+      </Text>
       <Text style={styles.text}>{score}</Text>
-      <CustomLink text="Finalizar" link="/" />
+      <CustomLink text="Finalizar" link="/menu" />
     </View>
   );
 }

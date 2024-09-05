@@ -16,12 +16,14 @@ export default function Menu() {
         <Pressable
           style={[global.link_container_no_available, { marginBottom: 40 }]}
         >
-          <Text style={global.link_text}>Accesos</Text>
+          <Text style={[global.link_text, { fontSize: 18 }]}>Accesos</Text>
         </Pressable>
         <Pressable
           style={[global.link_container_no_available, { marginBottom: 40 }]}
         >
-          <Text style={global.link_text}>Configuracion</Text>
+          <Text style={[global.link_text, { fontSize: 18 }]}>
+            Configuracion
+          </Text>
         </Pressable>
       </View>
     </>

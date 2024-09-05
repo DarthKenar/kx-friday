@@ -8,7 +8,7 @@ import { LocalStorage } from "../../src/types/storage";
 
 export default function StepA() {
   const [data, setData] = useState<LocalStorage>();
-  const [stepValue, setStepValue] = useState(5);
+  const [stepValue, setStepValue] = useState<number>(5);
 
   useEffect(() => {
     getData().then((storageData) => {
@@ -19,10 +19,13 @@ export default function StepA() {
     });
   }, []);
 
-  const onTouch = () => {
+  const onTouch = (value: number) => {
     if (data) {
-      data.stepA = stepValue;
+      data.stepA = value;
+      console.log(data);
       storeData(data);
+    } else {
+      console.log("No data");
     }
   };
 
@@ -69,7 +72,7 @@ export default function StepA() {
 
       <Slider
         style={{ width: 200, height: 150 }}
-        minimumValue={0}
+        minimumValue={1}
         maximumValue={10}
         minimumTrackTintColor="#08101D"
         maximumTrackTintColor="#000000"
@@ -79,6 +82,7 @@ export default function StepA() {
         onValueChange={(value) => setStepValue(value)}
       />
       <CustomLink
+        value={stepValue}
         onTouch={onTouch}
         text="Continuar"
         link="/auto-score/step-b"

@@ -7,20 +7,21 @@ import { useEffect, useState } from "react";
 import { LocalStorage } from "../../src/types/storage";
 export default function StepE() {
   const [data, setData] = useState<LocalStorage>();
-  const [stepValue, setStepValue] = useState(5);
+  const [stepValue, setStepValue] = useState<number | undefined>();
 
   useEffect(() => {
     getData().then((storageData) => {
       if (storageData) {
-        setStepValue(storageData.stepB ?? 5);
+        setStepValue(storageData.stepE ?? 5);
         setData(storageData);
       }
     });
   }, []);
 
-  const onTouch = () => {
+  const onTouch = (value: number) => {
     if (data) {
-      data.stepB = stepValue;
+      data.stepE = value;
+      console.log(data);
       storeData(data);
     }
   };
@@ -36,6 +37,7 @@ export default function StepE() {
           setValue={setStepValue}
           value={10}
           onTouch={onTouch}
+          stepValue={stepValue}
         />
         <CustomLink
           text="No"
@@ -43,6 +45,7 @@ export default function StepE() {
           setValue={setStepValue}
           value={5}
           onTouch={onTouch}
+          stepValue={stepValue}
         />
       </View>
     </View>
